@@ -19,7 +19,6 @@ public final class Seat {
         this.row = row;
         this.number = number;
         checkRep();
-
     }
 
     private void checkRep() {
