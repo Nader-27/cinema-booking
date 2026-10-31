@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class CinemaModel {
+public class CinemaModel implements Subject{
 
     public static final int SEAT_PRICE = 40;
 
@@ -29,11 +29,18 @@ public class CinemaModel {
     }
 
     // ----- Observer -----
+    @Override
     public void addListener(ModelListener listener) {
         listeners.add(listener);
     }
 
-    private void notifyListeners() {
+    @Override
+    public void removeListener(ModelListener listener) {
+        listeners.remove(listener);
+    }
+
+    @Override
+    public void notifyListeners() {
         for (ModelListener listener : listeners) {
             listener.modelChanged();
         }
